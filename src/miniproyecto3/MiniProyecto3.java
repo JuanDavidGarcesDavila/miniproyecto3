@@ -17,7 +17,7 @@ public class MiniProyecto3 {
         // TODO code application logic here
         System.out.println("hola mundo");
         
-        System.out.println("no me funciona el print");
+        System.out.println("a mi sí mentiroso");
     }
     
 }
