@@ -10,8 +10,8 @@ import java.awt.GridLayout;
  * @author j5434
  */
 public class MiniProyecto3 extends JFrame {
-    private JLabel lTitulo;
-    private JButton bIniciar, bSeguir, bRandom;
+    private JLabel lTitulo, lTempgrid, lTempletras;
+    private JButton bIniciar, bSeguir, bRandom, bCheck;
     private JPanel pNorth, pCenter, pSouth, pRecibeletras, pLetras;
 
     
@@ -21,14 +21,17 @@ public class MiniProyecto3 extends JFrame {
     private void initComponents()
     {
         lTitulo= new JLabel("Juego de Palabras");
-        bIniciar= new JButton();
-        bSeguir= new JButton();
-        bRandom= new JButton();
+        bIniciar= new JButton("iniciar");
+        bSeguir= new JButton("seguir");
+        bRandom= new JButton("random");
         pNorth= new JPanel(new FlowLayout());
         pCenter= new JPanel(new FlowLayout());
         pSouth= new JPanel(new FlowLayout());
         pRecibeletras= new JPanel();
         pLetras= new JPanel();
+        bCheck= new JButton("check");
+        lTempgrid= new JLabel("aquí van a haber filas");
+        lTempletras= new JLabel("aquí van a haber letras random");
         
         //agregar componentes a los paneles
         pNorth.add(bIniciar);
@@ -38,6 +41,11 @@ public class MiniProyecto3 extends JFrame {
         pSouth.add(pRecibeletras); 
         pSouth.add(pLetras); 
         pSouth.add(bRandom);
+        
+        pRecibeletras.add(lTempgrid);
+        pRecibeletras.add(bCheck);
+        
+        pLetras.add(lTempletras);
         
         //
         
