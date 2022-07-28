@@ -12,6 +12,7 @@ import javax.swing.border.TitledBorder;
  *          No olvides poner tu correo
  */
 public class MiniProyecto3 extends JFrame {
+    final String imgPath = "src\\img\\";
     private JLabel lTitulo, lTempgrid, lTempletras;
     private JButton bIniciar, bSeguir, bRandom, bCheck;
     private JPanel pNorth, pCenter, pSouth, pRecibeletras, pLetras, pIniciar, pTitulo, pSeguir;
@@ -70,13 +71,13 @@ public class MiniProyecto3 extends JFrame {
         pSeguir.add(bSeguir);
         
         //se editan los botones para darle una mejor vista
-        bIniciar.setIcon(new ImageIcon("src\\miniproyecto3\\startbutton.png"));
+        bIniciar.setIcon(new ImageIcon(imgPath +"startbutton.png"));
         bIniciar.setBackground(Color.WHITE);
-        bSeguir.setIcon(new ImageIcon("src\\miniproyecto3\\followbutton.png"));
+        bSeguir.setIcon(new ImageIcon(imgPath +"followbutton.png"));
         bSeguir.setBackground(Color.WHITE);
-        bRandom.setIcon(new ImageIcon("src\\miniproyecto3\\randombutton.png"));
+        bRandom.setIcon(new ImageIcon(imgPath +"randombutton.png"));
         bRandom.setBackground(Color.WHITE);
-        bCheck.setIcon(new ImageIcon("src\\miniproyecto3\\checkbutton.png"));
+        bCheck.setIcon(new ImageIcon(imgPath +"checkbutton.png"));
         bCheck.setBackground(Color.WHITE);
         
         //se agrega el panel por separado para acomodarlo mejor
