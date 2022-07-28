@@ -5,6 +5,7 @@ import java.awt.Color;
 import java.awt.FlowLayout;
 import javax.swing.*;
 import java.awt.GridLayout;
+import java.util.ArrayList;
 import javax.swing.border.TitledBorder;
 
 /*
@@ -16,7 +17,7 @@ public class MiniProyecto3 extends JFrame {
     private JLabel lTitulo, lTempgrid, lTempletras;
     private JButton bIniciar, bSeguir, bRandom, bCheck;
     private JPanel pNorth, pCenter, pSouth, pRecibeletras, pLetras, pIniciar, pTitulo, pSeguir;
-    private JPanel pLong3, pLong4, pLong5, pLong6, pContlong3, pContlong4, pContlong5, pContlong6;
+    private JPanel pLong3, pLong4, pLong5, pLong6;
     
     /**
      * Metodo para iniciar y construir la GUI
@@ -42,26 +43,35 @@ public class MiniProyecto3 extends JFrame {
         pLong4= new JPanel();
         pLong5= new JPanel();
         pLong6= new JPanel();
-        pContlong3= new JPanel(new GridLayout(1,1));
-        pContlong4= new JPanel(new GridLayout(1,1));
-        pContlong5= new JPanel(new GridLayout(1,1));
-        pContlong6= new JPanel(new GridLayout(1,1));
+        
+        
+        
+        //agregamos un borde a cada JPanel de Longitud
+        pLong3.setBorder(new TitledBorder ("Longitud 3"));
+        pLong3.add(new Filas(3));
+        pLong4.setBorder(new TitledBorder ("Longitud 4"));
+        pLong4.add(new Filas(4));
+        pLong5.setBorder(new TitledBorder ("Longitud 5"));
+        pLong5.add(new Filas(5));
+        pLong6.setBorder(new TitledBorder ("Longitud 6")); 
+        pLong6.add(new Filas(6));
+        
         
         //agregar componentes a los paneles
         pNorth.add(pIniciar);
         pNorth.add(pTitulo);
         pNorth.add(pSeguir);
         
-        pCenter.add(pContlong3);
-        pCenter.add(pContlong4);
-        pCenter.add(pContlong5);
-        pCenter.add(pContlong6);
+        pCenter.add(pLong3);
+        pCenter.add(pLong4);
+        pCenter.add(pLong5);
+        pCenter.add(pLong6);
         
         pSouth.add(pRecibeletras); 
         pSouth.add(pLetras); 
         pSouth.add(bRandom);
         
-        pRecibeletras.add(lTempgrid);
+        pRecibeletras.add(new Filas(6));
         pRecibeletras.add(bCheck);
         
         pLetras.add(lTempletras);
@@ -80,17 +90,9 @@ public class MiniProyecto3 extends JFrame {
         bCheck.setIcon(new ImageIcon(imgPath +"checkbutton.png"));
         bCheck.setBackground(Color.WHITE);
         
-        //se agrega el panel por separado para acomodarlo mejor
-        pContlong3.add(pLong3);
-        pContlong4.add(pLong4);
-        pContlong5.add(pLong5);
-        pContlong6.add(pLong6);
         
-        //agregamos un borde a cada JPanel de Longitud
-        pLong3.setBorder(new TitledBorder ("Longitud 3"));
-        pLong4.setBorder(new TitledBorder ("Longitud 4"));
-        pLong5.setBorder(new TitledBorder ("Longitud 5"));
-        pLong6.setBorder(new TitledBorder ("Longitud 6")); 
+        
+        
         
         //se agrega componentes al frame
         setLayout(new BorderLayout());
@@ -111,31 +113,37 @@ public class MiniProyecto3 extends JFrame {
     }
     
     //clase de las filas (boceto porque no se como hacer el for)
-    /*public class Filas extends JPanel{
+    public class Filas extends JPanel{
         
         private JPanel pContieneletras;
-        private JTextArea tCampo1, tCampo2, tCampo3, tCampo4, tCampo5, tCampo6;
+        private ArrayList<JTextArea> areas;
+        private int numeroColumnas; //Numero de columnas
+        
+         
         
         public void initComponents()
         {
-            pContieneletras= new JPanel(new GridLayout(1,6));
-            tCampo1= new JTextArea();
-            tCampo2= new JTextArea();
-            tCampo3= new JTextArea();
-            tCampo4= new JTextArea();
-            tCampo5= new JTextArea();
-            tCampo6= new JTextArea();
+            areas = new ArrayList<>();
             
-            pContieneletras.add(tCampo1);
-            pContieneletras.add(tCampo2);
-            pContieneletras.add(tCampo3);
-            pContieneletras.add(tCampo4);
-            pContieneletras.add(tCampo5);
-            pContieneletras.add(tCampo6);
+            setLayout(new GridLayout(1,numeroColumnas,10,0));
             
-            setLayout(new GridLayout());
+            for(int i = 0; i<numeroColumnas;i++)
+            {
+                JTextArea area = new JTextArea("   ");
+                //area.setBorder();
+                //area.setPr....Size
+                
+                areas.add(area);
+                add(areas.get(areas.size() - 1));  
+            }
         }
-    }*/
+        
+        Filas(int numero)
+        {
+           numeroColumnas = numero; 
+           initComponents();
+        }
+    }
     
     /**
      * @param args the command line arguments
