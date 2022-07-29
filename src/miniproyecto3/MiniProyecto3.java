@@ -1,12 +1,9 @@
 package miniproyecto3;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.FlowLayout;
 import javax.swing.*;
-import java.awt.GridLayout;
+import java.awt.*;
 import java.util.ArrayList;
-import javax.swing.border.TitledBorder;
+import javax.swing.border.*;
 
 /*
  * @author juan.david.garces@correounivalle.edu.co
@@ -14,7 +11,7 @@ import javax.swing.border.TitledBorder;
  */
 public class MiniProyecto3 extends JFrame {
     final String imgPath = "src\\img\\";
-    private JLabel lTitulo, lTempgrid, lTempletras;
+    private JLabel lTitulo, lTempletras;
     private JButton bIniciar, bSeguir, bRandom, bCheck;
     private JPanel pNorth, pCenter, pSouth, pRecibeletras, pLetras, pIniciar, pTitulo, pSeguir;
     private JPanel pLong3, pLong4, pLong5, pLong6;
@@ -34,7 +31,6 @@ public class MiniProyecto3 extends JFrame {
         pRecibeletras= new JPanel();
         pLetras= new JPanel();
         bCheck= new JButton();
-        lTempgrid= new JLabel("aquí van a haber filas");
         lTempletras= new JLabel("aquí van a haber letras random");
         pIniciar= new JPanel(new FlowLayout(FlowLayout.LEFT,10,10));
         pTitulo= new JPanel(new FlowLayout(FlowLayout.CENTER,30,30));
@@ -49,13 +45,18 @@ public class MiniProyecto3 extends JFrame {
         //agregamos un borde a cada JPanel de Longitud
         pLong3.setBorder(new TitledBorder ("Longitud 3"));
         pLong3.add(new Filas(3));
+        pLong3.setPreferredSize(new Dimension(175,250));
         pLong4.setBorder(new TitledBorder ("Longitud 4"));
         pLong4.add(new Filas(4));
+        pLong4.setPreferredSize(new Dimension(230,250));
         pLong5.setBorder(new TitledBorder ("Longitud 5"));
         pLong5.add(new Filas(5));
+        pLong5.setPreferredSize(new Dimension(285,250));
         pLong6.setBorder(new TitledBorder ("Longitud 6")); 
         pLong6.add(new Filas(6));
+        pLong6.setPreferredSize(new Dimension(340,250));
         
+        lTitulo.setFont(new Font("Arial", Font.PLAIN, 30));
         
         //agregar componentes a los paneles
         pNorth.add(pIniciar);
@@ -83,15 +84,14 @@ public class MiniProyecto3 extends JFrame {
         //se editan los botones para darle una mejor vista
         bIniciar.setIcon(new ImageIcon(imgPath +"startbutton.png"));
         bIniciar.setBackground(Color.WHITE);
+        bIniciar.setPreferredSize(new Dimension(40,40));
         bSeguir.setIcon(new ImageIcon(imgPath +"followbutton.png"));
         bSeguir.setBackground(Color.WHITE);
+        bSeguir.setPreferredSize(new Dimension(40,40));
         bRandom.setIcon(new ImageIcon(imgPath +"randombutton.png"));
         bRandom.setBackground(Color.WHITE);
         bCheck.setIcon(new ImageIcon(imgPath +"checkbutton.png"));
         bCheck.setBackground(Color.WHITE);
-        
-        
-        
         
         
         //se agrega componentes al frame
@@ -105,7 +105,7 @@ public class MiniProyecto3 extends JFrame {
     public MiniProyecto3()
     {
         initComponents();
-        setSize(1280,720);
+        setSize(1080,470);
         setVisible(true);
         setResizable(false);
         setTitle("FPOE - MiniProjecto3");
@@ -115,23 +115,21 @@ public class MiniProyecto3 extends JFrame {
     //clase de las filas (boceto porque no se como hacer el for)
     public class Filas extends JPanel{
         
-        private JPanel pContieneletras;
         private ArrayList<JTextArea> areas;
         private int numeroColumnas; //Numero de columnas
         
-         
         
         public void initComponents()
         {
             areas = new ArrayList<>();
             
-            setLayout(new GridLayout(1,numeroColumnas,10,0));
+            setLayout(new GridLayout(1,numeroColumnas,5,0));
             
             for(int i = 0; i<numeroColumnas;i++)
             {
-                JTextArea area = new JTextArea("   ");
-                //area.setBorder();
-                //area.setPr....Size
+                JTextArea area = new JTextArea("");
+                area.setBorder(new LineBorder(Color.black));
+                area.setPreferredSize(new Dimension(50,20));
                 
                 areas.add(area);
                 add(areas.get(areas.size() - 1));  
