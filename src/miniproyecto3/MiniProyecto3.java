@@ -29,7 +29,7 @@ public class MiniProyecto3 extends JFrame {
         pCenter= new JPanel(new FlowLayout());
         pSouth= new JPanel(new FlowLayout());
         pRecibeletras= new JPanel();
-        pLetras= new JPanel();
+        pLetras= new JPanel(new GridLayout(4,3));
         bCheck= new JButton();
         lTempletras= new JLabel("aquí van a haber letras random");
         pIniciar= new JPanel(new FlowLayout(FlowLayout.LEFT,10,10));
@@ -39,8 +39,6 @@ public class MiniProyecto3 extends JFrame {
         pLong4= new JPanel();
         pLong5= new JPanel();
         pLong6= new JPanel();
-        
-        
         
         //agregamos un borde a cada JPanel de Longitud
         pLong3.setBorder(new TitledBorder ("Longitud 3"));
@@ -92,6 +90,7 @@ public class MiniProyecto3 extends JFrame {
         bRandom.setBackground(Color.WHITE);
         bCheck.setIcon(new ImageIcon(imgPath +"checkbutton.png"));
         bCheck.setBackground(Color.WHITE);
+        bCheck.setPreferredSize(new Dimension(50,20));
         
         
         //se agrega componentes al frame
